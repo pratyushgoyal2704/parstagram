@@ -17,6 +17,7 @@
 		AA202EC727E9170400F583BA /* parstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA202EC627E9170400F583BA /* parstagramTests.swift */; };
 		AA202ED127E9170400F583BA /* parstagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA202ED027E9170400F583BA /* parstagramUITests.swift */; };
 		AA202ED327E9170400F583BA /* parstagramUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA202ED227E9170400F583BA /* parstagramUITestsLaunchTests.swift */; };
+		AA28F7E627E95112005D7DA4 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28F7E527E95112005D7DA4 /* APIKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AA202ECC27E9170400F583BA /* parstagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = parstagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA202ED027E9170400F583BA /* parstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parstagramUITests.swift; sourceTree = "<group>"; };
 		AA202ED227E9170400F583BA /* parstagramUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parstagramUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AA28F7E527E95112005D7DA4 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		C44AD15CF9593CB31BD94C73 /* Pods-parstagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parstagram.release.xcconfig"; path = "Target Support Files/Pods-parstagram/Pods-parstagram.release.xcconfig"; sourceTree = "<group>"; };
 		CB5B84AB62736CD89DFBEF05 /* Pods_parstagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_parstagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				AA202EB827E9170400F583BA /* Assets.xcassets */,
 				AA202EBA27E9170400F583BA /* LaunchScreen.storyboard */,
 				AA202EBD27E9170400F583BA /* Info.plist */,
+				AA28F7E527E95112005D7DA4 /* APIKeys.swift */,
 			);
 			path = parstagram;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			files = (
 				AA202EB427E9170400F583BA /* ViewController.swift in Sources */,
 				AA202EB027E9170400F583BA /* AppDelegate.swift in Sources */,
+				AA28F7E627E95112005D7DA4 /* APIKeys.swift in Sources */,
 				AA202EB227E9170400F583BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
