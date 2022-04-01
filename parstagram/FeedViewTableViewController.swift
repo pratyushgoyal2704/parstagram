@@ -8,20 +8,35 @@
 import UIKit
 import Parse
 import AlamofireImage
+import MessageInputBar
 
-class FeedViewTableViewController: UITableViewController {
+class FeedViewTableViewController: UITableViewController, MessageInputBarDelegate {
  
     
     @IBOutlet weak var tablewView: UITableView!
+    let commentBar = MessageInputBar()
+    
     var posts = [PFObject]()
     let myRefreshContol = UIRefreshControl()
-    
+    var showsCommentBar = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        commentBar.inputTextView.placeholder = "Add a comment.."
+        commentBar.sendButton.title = "Post"
+        commentBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        tablewView.keyboardDismissMode = .interactive
         myRefreshContol.addTarget(self, action: #selector(loadFeed), for: .valueChanged)
         tableView.refreshControl = myRefreshContol
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillBeHidden(note: Notification) {
+        commentBar.inputTextView.text = nil
+        showsCommentBar = false
+        becomeFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,11 +63,26 @@ class FeedViewTableViewController: UITableViewController {
         return posts.count
     }
 
+    override var inputAccessoryView: UIView? {
+        return commentBar
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return showsCommentBar
+    }
+    
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        commentBar.inputTextView.text = nil
+        showsCommentBar = false
+        becomeFirstResponder()
+        commentBar.inputTextView.resignFirstResponder()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let post = posts[section]
         let comment = (post["comments"] as? [PFObject]) ?? []
         
-        return comment.count + 1
+        return comment.count + 2
         
     }
     
@@ -74,12 +104,17 @@ class FeedViewTableViewController: UITableViewController {
             cell.photoView.af.setImage(withURL: url)
             return cell
         }
-        else {
+        else if indexPath.row <= comment.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComentCell") as! ComentCell
             let comment = comment[indexPath.row - 1]
             cell.commentLabel.text = comment["text"] as? String
             let user = comment["author"] as! PFUser
             cell.nameLabel.text = user.username
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddCommentCell")!
+            
             return cell
         }
         
@@ -97,21 +132,30 @@ class FeedViewTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = posts[indexPath.row]
-        let comment = PFObject(className: "Comments")
-        comment["text"] = "Random comment"
-        comment["post"] = post
-        comment["author"] = PFUser.current()!
+        let post = posts[indexPath.section]
+        let comments = (post["comments"] as? [PFObject]) ?? []
         
-        post.add(comment, forKey: "comments")
-        post.saveInBackground { (success, error) in
-            if success {
-                print("Comment saved")
-            }
-            else {
-                print("Error saving comment")
-            }
+        if indexPath.row == comments.count + 1 {
+            showsCommentBar = true
+            becomeFirstResponder()
+            commentBar.inputTextView.becomeFirstResponder()
         }
+        
+        
+        
+//        comment["text"] = "Random comment"
+//        comment["post"] = post
+//        comment["author"] = PFUser.current()!
+//
+//        post.add(comment, forKey: "comments")
+//        post.saveInBackground { (success, error) in
+//            if success {
+//                print("Comment saved")
+//            }
+//            else {
+//                print("Error saving comment")
+//            }
+//        }
         
     }
     
