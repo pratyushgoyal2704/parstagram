@@ -21,6 +21,7 @@
 		AAB80C9D27EBB8E60017C2E4 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB80C9C27EBB8E60017C2E4 /* APIKeys.swift */; };
 		AAB80C9F27EBD1E50017C2E4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB80C9E27EBD1E50017C2E4 /* PostCell.swift */; };
 		AAE12A3D27EE66AF00561904 /* FeedViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE12A3C27EE66AF00561904 /* FeedViewTableViewController.swift */; };
+		AAF3A71027F7884100245F97 /* ComentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF3A70F27F7884100245F97 /* ComentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		AAB80C9C27EBB8E60017C2E4 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		AAB80C9E27EBD1E50017C2E4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		AAE12A3C27EE66AF00561904 /* FeedViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewTableViewController.swift; sourceTree = "<group>"; };
+		AAF3A70F27F7884100245F97 /* ComentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentCell.swift; sourceTree = "<group>"; };
 		C44AD15CF9593CB31BD94C73 /* Pods-parstagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parstagram.release.xcconfig"; path = "Target Support Files/Pods-parstagram/Pods-parstagram.release.xcconfig"; sourceTree = "<group>"; };
 		CB5B84AB62736CD89DFBEF05 /* Pods_parstagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_parstagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				AA202EAF27E9170400F583BA /* AppDelegate.swift */,
 				AA202EB127E9170400F583BA /* SceneDelegate.swift */,
 				AA202EB527E9170400F583BA /* Main.storyboard */,
+				AAF3A70F27F7884100245F97 /* ComentCell.swift */,
 				AAB80C9E27EBD1E50017C2E4 /* PostCell.swift */,
 				AAB80C9A27EABF2F0017C2E4 /* CameraViewController.swift */,
 				AAB80C9C27EBB8E60017C2E4 /* APIKeys.swift */,
@@ -339,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB80C9F27EBD1E50017C2E4 /* PostCell.swift in Sources */,
+				AAF3A71027F7884100245F97 /* ComentCell.swift in Sources */,
 				AAB80C9D27EBB8E60017C2E4 /* APIKeys.swift in Sources */,
 				AA28F7E827EAA40F005D7DA4 /* LoginViewController.swift in Sources */,
 				AA202EB027E9170400F583BA /* AppDelegate.swift in Sources */,
